@@ -1,0 +1,100 @@
+import customtkinter as ctk
+from tkinter import *
+from tkinter import messagebox
+from PIL import Image, ImageTk
+from datetime import datetime
+import sqlite3
+
+
+
+# Tela de Ordem de Serviço
+class App(ctk.CTk):
+    def __init__(self):
+        super().__init__()
+        self.layout_config()
+        self.appearence()
+        self.todo_sistema()
+        self.tela_os()
+        self.status()
+        self.setor()
+        self.obs()
+       
+        
+    def layout_config(self):
+        self.title("Ordem de Serviço")
+        self.geometry("700x500")  # Aumentei a altura para acomodar o novo campo
+        
+    def appearence(self):
+        self.lb_appearence = ctk.CTkLabel(self, text="Tema", bg_color="transparent", text_color=["#000", "#fff"])
+        self.lb_appearence.place(x=25, y=400)
+
+        self.opt_apm = ctk.CTkOptionMenu(self, values=["Light", "Dark", "System"], command=self.change_apm)
+        self.opt_apm.place(x=25, y=430)  # Ajustado para nova posição
+        
+    def todo_sistema(self):
+        frame = ctk.CTkFrame(self, width=700, height=50, corner_radius=0, bg_color="teal", fg_color="teal")
+        frame.place(x=0, y=10) 
+        
+        title = ctk.CTkLabel(frame, text="Cadastro de Ordem de Serviço", font=("Century Gothic bold", 20), text_color="#fff")
+        title.place(x=220, y=10)  # Ajuste para a posição do título
+        
+        span = ctk.CTkLabel(self, text="* Preencha os campos abaixo, com todos os dados solicitados.", bg_color="transparent", text_color=["#000", "#fff"])
+        span.place(x=50, y=60)  
+
+    def change_apm(self, mode):
+        # Função para alterar o tema
+        if mode == "Light":
+            ctk.set_appearance_mode("light")
+        elif mode == "Dark":
+            ctk.set_appearance_mode("dark")
+        else:
+            ctk.set_appearance_mode("system")
+    
+    def tela_os(self):
+        # Data de Abertura com data atual
+        current_date = datetime.now().strftime("%Y-%m-%d")  # Formato da data
+    
+        # Exibir a data em um label
+        data_label = ctk.CTkLabel(self, text=f"Data de Abertura: {current_date}", font=("Century Gothic bold", 14))
+        data_label.place(x=25, y=110)
+
+        local_entry = ctk.CTkEntry(self, placeholder_text="Local do Atendimento:", width=630, 
+                                   font=("Century Gothic bold", 14))
+        local_entry.place(x=25, y=150)
+        
+        servico_entry = ctk.CTkEntry(self, placeholder_text="Descrição do Serviço:", width=630, 
+                                      font=("Century Gothic bold", 14))
+        servico_entry.place(x=25, y=190)
+        
+    def status(self):
+        self.lb_status = ctk.CTkLabel(self, text="Status do Atendimento: ", bg_color="transparent", text_color=["#000", "#fff"])
+        self.lb_status.place(x=25, y=230)    
+        
+        status_combobox = ctk.CTkComboBox(self, values=["Aberto", "Concluído"], font=("Century Gothic bold", 12))
+        status_combobox.place(x=25, y=260)
+        status_combobox.set("Aberto")
+        
+    def setor(self):
+           
+        self.lb_setor= ctk.CTkLabel(self, text="Setor Solicitante: ", bg_color="transparent", text_color=["#000", "#fff"])
+        self.lb_setor.place(x=25, y=300)   
+            
+        setor_combobox = ctk.CTkComboBox(self, values=["Ger. Operacional", "Governança", "Manutenção", "A&B", "Recepção", "Almoxarifado", "Eventos", "TI"], 
+                                         font=("Century Gothic bold", 12))
+        setor_combobox.place(x=25, y=330)
+        setor_combobox.set("Ger. Operacional")    
+
+    
+    def obs(self):   
+        
+        self.lb_obs = ctk.CTkLabel(self, text="Observações: ", bg_color="transparent", text_color=["#000", "#fff"])
+        self.lb_obs.place(x=300, y=230)  
+        
+        self.obs_entry = ctk.CTkEntry(self, width=350, height=100,  font=("arial", 12), border_color="#aaa", border_width=2, 
+                                 fg_color="transparent"). place(x=300, y=260)
+        
+        
+        
+if __name__ == "__main__":
+    app = App()
+    app.mainloop()
