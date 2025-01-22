@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Teela</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="welcome-message">
+            <h1>Bem-vindo(a) ao Teela</h1>
+            <h2>Gerenciamento de Ordem de Serviço</h2>
+        </div>
+
+        <div class="login-frame">
+            <h3>Faça seu Login</h3>
+
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="E-mail do Usuário" required>
+                    <p>*O campo e-mail de usuário é de caráter obrigatório.</p>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Senha do Usuário" required>
+                    <p>*O campo senha de usuário é de caráter obrigatório.</p>
+                </div>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Mantenha-me conectado</label>
+                </div>
+                <div style="height: 20px;"></div> <!-- Espaço -->
+
+                <button type="submit">Entrar</button>
+
+            </form>
+            <p>Não possui conta? <a href="{{ url_for('register') }}">Cadastre-se</a></p>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
