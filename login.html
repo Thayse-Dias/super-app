@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: 'Century Gothic', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 700px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Centralizando a imagem */
+        .image-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%; /* Ocupa metade do espaço */
+        }
+
+        .image-section img {
+            max-width: 100%;
+            max-height: 270px;
+        }
+
+        .login-section {
+            width: 50%;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 12px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .checkbox-container input {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        small {
+            display: block;
+            text-align: left;
+            margin-bottom: 10px;
+            font-size: 10px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-section">
+            <img src="C:\Users\thays\OneDrive\Área de Trabalho\appTeela\Logomarca1.jpg">
+        </div>
+        <div class="login-section">
+            <h2>Faça seu Login</h2>
+            <form id="loginForm">
+                <input type="email" id="email" placeholder="E-mail do Usuário" required>
+                <small>*O campo e-mail é de caráter obrigatório.</small>
+                <input type="password" id="password" placeholder="Senha do Usuário" required>
+                <small>*O campo senha de usuário é de caráter obrigatório.</small>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Lembrar-me</label>
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+            <p>Não possui conta? <a href="register.html">Cadastre-se</a></p>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
